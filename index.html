@@ -1,0 +1,110 @@
+<html>
+  	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container" id="mainDiv">
+			<div class="list-group" style="width : 200px; float: left;">
+                                
+				<div class="list-group-item list-group-item-action list-group-item-primary">Factor |
+					<input type="number" id="factor" value="0.5" min="0.1" max="2" style="width:60px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-primary">Axiom |
+					<input type="text" id="axiom" value="FF" style="width:80px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-primary">Rules |
+					<input type="text" id="rule1" value="F=F" style="width:150px;" onchange="setup()">
+					<input type="text" id="rule2" value="X=FX" style="width:150px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-primary">StartX |
+					<input type="number" id="startx" min="0" max="800" step="25" value="400" style="width:60px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-primary">StartY |
+					<input type="number" id="starty" min="0" max="800" step="25" value="800" style="width:60px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-primary">Iterations |
+					<input type="number" id="iterations" min="1" max="15" step="1" value="1" style="width:40px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-warning">Length |
+					<input type="number" id="len" min="100" max="60000" step="50" value="300" style="width:60px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-warning">Angle |
+					<input type="number" id="angle" min="5" max="150" step="1" value="60" style="width:60px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-warning">Thickness |
+					<input type="number" id="thickness" min ="1" max="5" step="1" value="2" style="width:40px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-danger">Color 1 | 
+					<input type="color" id="color1" value="#00ff00" style="width: 30px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-danger">Color 2 | 
+					<input type="color" id="color2" value="#0000ff" style="width: 30px;" onchange="setup()">
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-danger">bgColor | 
+					<input type="color" id="bgColor" value="#000000" style="width: 30px;" onchange="setup()">
+				</div>
+			</div>
+
+			<div class="list-group" style="width: 100px; float: left; font-size: 15px;">
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Peano
+				</button>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Hilbert
+				</button>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Q Gosper
+				</button>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Koch
+				</button>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Pentaplex
+				</button>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Dragon
+				</button>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Tessel
+				</div>
+				<button class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					S Square
+				</button>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Peano-C
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					S Carpet
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Terdragon
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Gosper
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Weed
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Tree 1
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Tree 2
+				</div>
+				<div class="list-group-item list-group-item-action list-group-item-success" style="padding-left: 5px; padding-right: 5px;" onclick="setPattern(event)">
+					Tree 3
+				</div>
+			
+			</div>
+
+			
+		</div>
+
+		<script src="sketch.js"></script>
+	</body>
+</html>
