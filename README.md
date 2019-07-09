@@ -60,5 +60,19 @@ Number of iterations of the curve/pattern. As one might guess, more the number o
 
 A list of existing patterns and designs are present in the web page already. These include popular curves like :
 
+#### Dragon Curve
+![](gifs/dragon_gif.gif)
+#### Gosper Curve
+![](gifs/gosper_gif.gif)
+#### Hilbert Curve
+![](gifs/hilbert_gif.gif)
+#### Maze-y thing
+![](gifs/maze_gif.gif)
+#### Pentaplex
+![](gifs/pentaplex_gif.gif)
 #### Peano Curve
-
+![](gifs/peano_gif.gif)
+#### Plant
+![](gifs/plant_gif.gif)
+#### Tree
+![](gifs/tree_gif.gif)
